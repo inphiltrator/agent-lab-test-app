@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "redis-bridge": {
+      "command": "/Users/inphiltration/development/agent-lab/.venv/bin/python",
+      "args": [
+        "/Users/inphiltration/development/agent-lab/src/mcp/redis_mcp_bridge.py"
+      ],
+      "env": {
+        "AGENT_LAB_PATH": "/Users/inphiltration/development/agent-lab",
+        "REDIS_URL": "redis://localhost:6379"
+      },
+      "working_directory": null,
+      "start_on_launch": true
+    }
+  }
+}

@@ -1,0 +1,143 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Southwest Desert Theme CSS Variables */
+:root {
+  /* Primary Colors */
+  --sunset-orange: #FF6B35;
+  --desert-sage: #9CAF88;
+  --canyon-red: #B85450;
+  --mesa-tan: #E8C5A0;
+  --sage-green: #7A9B76;
+  --desert-sky: #87CEEB;
+  --cactus: #2F5233;
+  --sandstone: #D2B48C;
+  --adobe: #C19A6B;
+  
+  /* Glass Effect Variables */
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  
+  /* Gradients */
+  --desert-gradient: linear-gradient(135deg, var(--sunset-orange) 0%, var(--canyon-red) 50%, var(--adobe) 100%);
+  --sage-gradient: linear-gradient(135deg, var(--desert-sage) 0%, var(--sage-green) 100%);
+  --sky-gradient: linear-gradient(135deg, var(--desert-sky) 0%, var(--mesa-tan) 100%);
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Apple Liquid Glass Components */
+@layer components {
+  .glass-card {
+    @apply backdrop-blur-glass bg-glass border border-glass rounded-2xl shadow-2xl;
+    box-shadow: var(--glass-shadow);
+  }
+  
+  .glass-nav {
+    @apply backdrop-blur-glass bg-glass/80 border-b border-glass/50;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-primary {
+    @apply bg-sunset-orange hover:bg-canyon-red text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1;
+  }
+  
+  .btn-secondary {
+    @apply bg-desert-sage hover:bg-sage-green text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1;
+  }
+  
+  .btn-glass {
+    @apply glass-card hover:bg-glass/20 text-gray-800 font-semibold py-3 px-6 transition-all duration-300 transform hover:-translate-y-1;
+  }
+  
+  .input-glass {
+    @apply glass-card bg-glass/50 border-glass/30 rounded-xl px-4 py-3 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-sunset-orange/50 focus:border-transparent transition-all duration-300;
+  }
+  
+  .card-float {
+    @apply animate-float;
+  }
+  
+  .text-gradient-sunset {
+    background: var(--desert-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .text-gradient-sage {
+    background: var(--sage-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .bg-gradient-desert {
+    background: var(--desert-gradient);
+  }
+  
+  .bg-gradient-sage {
+    background: var(--sage-gradient);
+  }
+  
+  .bg-gradient-sky {
+    background: var(--sky-gradient);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--sunset-orange);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--canyon-red);
+}
+
+/* Mobile-first responsive utilities */
+@media (max-width: 640px) {
+  .glass-card {
+    @apply mx-4 rounded-lg;
+  }
+  
+  .btn-primary,
+  .btn-secondary,
+  .btn-glass {
+    @apply py-2 px-4 text-sm;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --glass-bg: rgba(0, 0, 0, 0.3);
+    --glass-border: rgba(255, 255, 255, 0.1);
+  }
+  
+  body {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    color: #f5f5f5;
+  }
+}
