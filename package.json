@@ -1,0 +1,48 @@
+{
+  "name": "southwest-test-app",
+  "version": "1.0.0",
+  "description": "Southwest Test App built with Warp 2.0 Multi-Agent System",
+  "main": "src/main.py",
+  "scripts": {
+    "start": "python src/agents/main_agent.py",
+    "setup": "bash scripts/setup.sh",
+    "agents": "bash scripts/start_agents.sh",
+    "webapp:install": "cd test-app && npm install",
+    "webapp:dev": "cd test-app && npm run dev",
+    "webapp:build": "cd test-app && npm run build",
+    "webapp:preview": "cd test-app && npm run preview",
+    "test": "python -m pytest src/ --verbose",
+    "lint": "flake8 src/",
+    "format": "black src/",
+    "clean": "find . -type d -name '__pycache__' -exec rm -rf {} + || true"
+  },
+  "keywords": [
+    "warp",
+    "multi-agent",
+    "agent-system",
+    "southwest",
+    "test-app",
+    "python",
+    "svelte"
+  ],
+  "author": "Southwest Test App Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/inphiltrator/agent-lab-test-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/inphiltrator/agent-lab-test-app/issues"
+  },
+  "homepage": "https://github.com/inphiltrator/agent-lab-test-app#readme",
+  "engines": {
+    "node": ">=18.0.0",
+    "python": ">=3.9.0"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "workspaces": [
+    "test-app"
+  ]
+}
